@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Filament\Support\Assets\Js;
 use Illuminate\Support\ServiceProvider;
+use Filament\Support\Facades\FilamentAsset;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        FilamentAsset::register([
+            Js::make('alpine-ui', 'https://unpkg.com/@alpinejs/ui@3.13.3-beta.1/dist/cdn.min.js'),
+        ]);
     }
 }
